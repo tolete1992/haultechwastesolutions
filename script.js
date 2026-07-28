@@ -8,11 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Stop the page from reloading
         e.preventDefault();
 
-        // Gather all form data
+        // Gather all form data (automatically includes the hidden access_key and hCaptcha token from the form)
         const formData = new FormData(form);
-        
-        // Append your specific access key
-        formData.append("access_key", "d04e85ba-3c65-4152-a15e-66b046888e22");
 
         // Save the original button text so we can restore it later
         const originalText = submitBtn.textContent;
