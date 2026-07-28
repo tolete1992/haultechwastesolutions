@@ -1,0 +1,941 @@
+/* =========================================
+   ENTERPRISE DESIGN SYSTEM & VARIABLES
+   ========================================= */
+   :root {
+    --primary-navy: #0B192C;
+    --primary-green: #00A651; /* Vibrant, trustworthy green */
+    --hover-green: #008741;
+    --bg-light: #F4F7F6;
+    --text-main: #334155;
+    --text-muted: #64748B;
+    --white: #ffffff;
+    --border-color: #E2E8F0;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 40px rgba(11, 25, 44, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-navy);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* =========================================
+   NAVIGATION (Corporate & Sleek)
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span { color: var(--primary-green); }
+.logo .tagline {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    border-left: 2px solid var(--border-color);
+    padding-left: 10px;
+    display: none; /* Hidden on very small screens */
+}
+
+@media(min-width: 768px) { .logo .tagline { display: block; } }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-navy);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav a:hover { color: var(--primary-green); }
+
+/* Buttons */
+.btn-nav-call {
+    background: var(--primary-navy);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.3s;
+}
+.btn-nav-call:hover {
+    background: var(--primary-green);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--primary-green);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+    background: var(--hover-green);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 166, 81, 0.3);
+}
+
+.btn-outline-light {
+    border: 2px solid var(--white);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-outline-light:hover {
+    background: var(--white);
+    color: var(--primary-navy);
+}
+
+/* =========================================
+   HERO SECTION (Cinematic & Bold)
+   ========================================= */
+.hero {
+    position: relative;
+    height: 85vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    background: url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=80') center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(11, 25, 44, 0.95) 0%, rgba(11, 25, 44, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    color: var(--white);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(0, 166, 81, 0.2);
+    color: var(--primary-green);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 166, 81, 0.4);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Animation for Hero */
+.fade-in-up {
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   TRUST SECTION (Corporate Capabilities)
+   ========================================= */
+.trust-section {
+    padding: 4rem 5%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.trust-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    text-align: center;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 166, 81, 0.1);
+    color: var(--primary-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem auto;
+    transition: transform 0.3s;
+}
+
+.trust-item:hover .icon-circle { transform: scale(1.1); }
+.trust-item h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+
+/* =========================================
+   BOOKING SECTION (Split Layout)
+   ========================================= */
+.booking-section {
+    padding: 6rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+@media(max-width: 992px) {
+    .booking-container { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3rem; }
+}
+
+.booking-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.booking-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-card i {
+    font-size: 2.5rem;
+    color: var(--primary-navy);
+}
+
+.contact-card h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+.contact-card a {
+    color: var(--primary-green);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Premium Form Styling */
+.booking-form-wrapper {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media(max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .booking-form-wrapper { padding: 2rem 1.5rem; }
+}
+
+.form-group { margin-bottom: 1.5rem; }
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-navy);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-light);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border: 1px solid var(--primary-green);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(0, 166, 81, 0.1);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.btn-submit { width: 100%; margin-top: 1rem; padding: 1.2rem; font-size: 1.1rem; }
+
+.form-status { margin-top: 1.5rem; font-weight: 600; text-align: center; }
+
+/* =========================================
+   CORPORATE FOOTER
+   ========================================= */
+footer {
+    background: var(--primary-navy);
+    color: var(--white);
+    padding: 4rem 5% 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand h2 { color: var(--white); margin-bottom: 0.5rem; }
+.footer-brand span { color: var(--primary-green); }
+.footer-contact p { margin-bottom: 0.5rem; }
+.footer-contact a { color: var(--white); text-decoration: none; transition: color 0.3s; }
+.footer-contact a:hover { color: var(--primary-green); }
+.footer-contact i { color: var(--primary-green); margin-right: 10px; }
+
+.footer-bottom { text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+/* =========================================
+   SERVICES PAGE (Enterprise Layout)
+   ========================================= */
+
+/* Shorter Cinematic Hero for Subpages */
+.hero-inner {
+    height: 50vh;
+    min-height: 400px;
+}
+
+/* Services Layout */
+.services-showcase {
+    padding: 6rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.services-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+}
+
+@media(min-width: 768px) {
+    .services-showcase-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(min-width: 1100px) {
+    .services-showcase-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Premium Service Cards */
+.service-card-premium {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Animated Green Top Border on Hover */
+.service-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.service-card-premium:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.service-card-premium:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card-premium .icon {
+    font-size: 2.8rem;
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+}
+
+.service-card-premium h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.service-card-premium p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Custom Checkmark List using FontAwesome */
+.service-card-premium ul {
+    list-style: none;
+}
+
+.service-card-premium ul li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--primary-navy);
+}
+
+.service-card-premium ul li::before {
+    content: '\f00c'; /* FontAwesome Checkmark */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--primary-green);
+}
+
+/* Call to Action Banner */
+.cta-banner {
+    background: var(--primary-navy);
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.cta-banner h2 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.cta-banner p {
+    color: #cbd5e1;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   BY THE NUMBERS / STATS SECTION
+   ========================================= */
+.stats-section {
+    background: var(--primary-navy);
+    color: var(--white);
+    padding: 5rem 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.stat-item h2 {
+    font-size: 3.5rem;
+    color: var(--primary-green);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+/* Special styling for the ABN card so it fits nicely */
+.stat-item .abn-code {
+    font-size: 1.6rem;
+    color: var(--primary-green);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+    padding-top: 0.5rem;
+}
+
+.stat-item p {
+    color: #cbd5e1;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   PERFECT CENTERING FOR SERVICES PAGE HERO
+   ========================================= */
+.hero-inner .hero-content {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+}
+
+.hero-inner .hero-content p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 650px;
+}
+
+/* =========================================
+   ULTRA-COMPACT MOBILE HEADER FIX
+   ========================================= */
+@media(max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 4%;
+        flex-wrap: nowrap; /* Forces everything to stay on one clean line */
+    }
+
+    /* Shrinks the logo just enough so it never crowds the menu buttons */
+    .logo a {
+        font-size: 1.3rem !important;
+        letter-spacing: -0.5px;
+    }
+
+    .tagline {
+        display: none !important; /* Hides secondary text completely on mobile */
+    }
+
+    .mobile-actions {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+    }
+    
+    /* Makes the mobile phone icon sleek and proportional */
+    .mobile-phone-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+    }
+
+    /* Tightens the hamburger button */
+    .menu-toggle {
+        font-size: 1.35rem;
+        padding: 0;
+    }
+
+    .desktop-phone {
+        display: none !important;
+    }
+}
+
+/* =========================================
+   RESPONSIVE PHONE NUMBER & HEADER STYLING
+   ========================================= */
+@media(max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 4%;
+        justify-content: space-between;
+    }
+
+    .logo a {
+        font-size: 1.2rem !important;
+        letter-spacing: -0.5px;
+    }
+
+    .tagline {
+        display: none !important;
+    }
+
+    nav ul {
+        gap: 0.6rem;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    /* Keeps the call button compact and clean on mobile */
+    .btn-nav-call {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    /* Keeps the phone digits readable on smaller phones */
+    .phone-number {
+        font-size: 0.78rem;
+    }
+}
+
+/* For extremely small screens (older phones under 380px wide) */
+@media(max-width: 380px) {
+    .phone-number {
+        display: none; /* Safely hides just the digits on tiny screens, keeping the green phone icon active to dial */
+    }
+}
+
+/* =========================================
+   MOBILE HERO SECTION FIX (Prevents Text Cutoff)
+   ========================================= */
+@media(max-width: 768px) {
+    .hero {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 5rem 5% 4rem 5% !important;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-content p {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* =========================================
+   3D & MOVING SERVICE ICONS
+   ========================================= */
+
+/* Enable 3D perspective on the service cards */
+.service-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* 3D tilt effect when hovering the entire card */
+.service-card:hover {
+    transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+    box-shadow: 0 20px 40px rgba(0, 166, 81, 0.15), 0 10px 20px rgba(11, 25, 44, 0.1);
+}
+
+/* Continuous gentle floating movement for the icon container */
+.service-icon, 
+.service-card i {
+    animation: floatIcon 4s ease-in-out infinite;
+    transform-style: preserve-3d;
+    display: inline-block;
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+/* Keyframes for smooth floating motion */
+@keyframes floatIcon {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Enhanced 3D pop effect when hovering the card */
+.service-card:hover .service-icon,
+.service-card:hover i {
+    animation-play-state: paused; /* Pause floating during hover to focus on the 3D pop */
+    transform: translateY(-12px) translateZ(25px) scale(1.12);
+    color: var(--primary-green);
+    text-shadow: 0 10px 20px rgba(0, 166, 81, 0.3);
+}
+
+/* =========================================
+   CUSTOM BRAND LOGO STYLING
+   ========================================= */
+
+/* Header Logo */
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 48px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.02);
+}
+
+/* Footer Logo */
+.footer-brand a {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.footer-logo-img {
+    height: 52px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Mobile Adjustments for Header Logo */
+@media(max-width: 768px) {
+    .logo-img {
+        height: 38px;
+    }
+}
+
+/* =========================================
+   SIDE-BY-SIDE LOGO & BRAND TEXT
+   ========================================= */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover .logo-img {
+    transform: scale(1.03);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--primary-navy);
+    letter-spacing: -0.5px;
+}
+
+.brand-name span {
+    color: var(--primary-green);
+}
+
+.tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.65rem;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Mobile Responsiveness for Header Branding */
+@media(max-width: 768px) {
+    .logo-img {
+        height: 34px;
+    }
+
+    .brand-name {
+        font-size: 1.05rem;
+    }
+
+    .tagline {
+        display: none; /* Hides tagline on smaller mobile screens to keep the header clean and uncluttered */
+    }
+}
+
+/* =========================================
+   SERVICE AREA MAP SECTION
+   ========================================= */
+.map-section {
+    padding: 5rem 5%;
+    background: #f8fafc;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.map-header {
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.map-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: 0.75rem;
+}
+
+.map-header p {
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(11, 25, 44, 0.08);
+    border: 1px solid var(--border-color);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 420px;
+    display: block;
+}
+
+/* Mobile Responsiveness for Map Section */
+@media(max-width: 768px) {
+    .map-section {
+        padding: 3.5rem 4%;
+    }
+
+    .map-header h2 {
+        font-size: 1.7rem;
+    }
+
+    .map-container iframe {
+        height: 320px;
+    }
+}
+

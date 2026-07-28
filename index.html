@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaulTech Waste Solutions | Waste Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html" class="logo-container">
+                <img src="IMG_9557.JPG" alt="HaulTech Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand-name">HAUL<span>TECH</span></span>
+                    <span class="tagline">WASTE SOLUTIONS</span>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#booking">Quote Request</a></li>
+                <li>
+                    <a href="tel:0411460089" class="btn-nav-call">
+                        <i class="fa-solid fa-phone"></i> <span class="phone-number">0411 460 089</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in-up">
+            <span class="badge">Sydney's Premier Waste Partner</span>
+            <h1>Smart, Scalable Waste Management.</h1>
+            <p>From rapid-response bulk residential clearances to comprehensive commercial waste streams. Better service, transparent pricing, zero hassle.</p>
+            
+            <div class="hero-buttons">
+                <a href="#booking" class="btn-primary btn-lg">Request a Quote <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="services.html" class="btn-outline-light btn-lg">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h2>1+</h2>
+                <p>Years Operational Excellence</p>
+            </div>
+            <div class="stat-item">
+                <h2>750+</h2>
+                <p>Tonnes Diverted Yearly</p>
+            </div>
+            <div class="stat-item">
+                <h2>500+</h2>
+                <p>Clients Serviced Across Sydney</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="icon-circle"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3>Rapid Response</h3>
+                <p>Same-day and next-day fleet dispatch available for urgent bulk clearances.</p>
+            </div>
+            <div class="trust-item">
+                <div class="icon-circle"><i class="fa-solid fa-leaf"></i></div>
+                <h3>Eco-Conscious</h3>
+                <p>Advanced recycling routing ensures minimal waste reaches landfill.</p>
+            </div>
+            <div class="trust-item">
+                <div class="icon-circle"><i class="fa-solid fa-building-shield"></i></div>
+                <h3>Fully Compliant</h3>
+                <p>Licensed, insured, and strictly adhering to EPA guidelines and safety standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking-section">
+        <div class="booking-container">
+            <div class="booking-text">
+                <h2>Request a Quote</h2>
+                <p>Submit your details below. Our dispatch team will review your requirements and provide an immediate confirmation and transparent quote.</p>
+                
+                <div class="contact-card">
+                    <i class="fa-solid fa-headset"></i>
+                    <div>
+                        <h4>Need immediate assistance?</h4>
+                        <a href="tel:0411460089">Call 0411 460 089</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-form-wrapper">
+                <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="access_key" value="d04e85ba-3c65-4152-a15e-66b046888e22">
+    <input type="checkbox" name="botcheck" style="display: none;">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Full Name / Company <span class="required">*</span></label>
+            <input type="text" name="name" required placeholder="John Doe or Acme Corp">
+        </div>
+        <div class="form-group">
+            <label>Phone Number <span class="required">*</span></label>
+            <input type="tel" name="phone" required placeholder="04xx xxx xxx">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Email Address <span class="required">*</span></label>
+            <input type="email" name="email" required placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+            <label>Collection Date <span class="required">*</span></label>
+            <input type="date" name="date" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Service Required <span class="required">*</span></label>
+        <select name="waste-type" required>
+            <option value="">Select Service Type...</option>
+            <option value="One-Off Bulk Clearance">One-Off Bulk Rubbish Clearance</option>
+            <option value="Ongoing Commercial">Ongoing Commercial/Business Service</option>
+            <option value="Construction Waste">Construction/Job Site Waste</option>
+            <option value="Recycling Solutions">Dedicated Recycling Solutions</option>
+            <option value="Other">Other / Unsure</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Upload Photo of Rubbish (Optional)</label>
+        <input type="file" name="attachment" accept="image/*" class="file-input">
+        <small style="color: #64748b; font-size: 0.85rem; display: block; margin-top: 4px;">Accepted formats: JPG, PNG (Max size: 5MB)</small>
+    </div>
+
+    <div class="form-group">
+        <label>Site Details & Access (Optional)</label>
+        <textarea name="message" rows="3" placeholder="e.g., loading dock access, narrow driveway, specific items to collect..."></textarea>
+    </div>
+
+    <div class="form-group" style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+        <div class="h-captcha" data-captcha="true"></div>
+    </div>
+
+    <button type="submit" class="btn-primary block btn-submit">Submit Request <i class="fa-solid fa-paper-plane"></i></button>
+    <div id="formStatus" class="form-status"></div>
+</form>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-header">
+            <h2>Our Service Coverage</h2>
+            <p>Providing rapid-response waste management and bulk collection across Sydney and New South Wales.</p>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Sydney+New+South+Wales&t=&z=10&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="400" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="HaulTech Service Area Map">
+            </iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>HAUL<span>TECH</span> <span style="font-size: 1rem; font-weight: 600; color: #cbd5e1; letter-spacing: 1px; margin-left: 8px;">WASTE SOLUTIONS</span></h2>
+                <p>Next-generation waste management and bulk collection across Sydney.</p>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:admin@haultechwaste.com.au">admin@haultechwaste.com.au</a></p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:0411460089">0411 460 089</a></p>
+                <p class="footer-abn"><i class="fa-solid fa-file-invoice"></i> ABN: 99 797 283 362</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 HaulTech Waste Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
