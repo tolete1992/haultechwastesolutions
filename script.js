@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 // Success: Show green text instead of an alert popup
                 statusDiv.style.color = '#16a34a'; 
-                statusDiv.textContent = "Success! Your booking request has been sent to HaulTech.";
+                statusDiv.textContent = "Success! Your quote request has been sent to HaulTech Waste solutions' Team.";
                 form.reset(); // Clear the form fields
             } else {
                 // Error from Web3Forms: Show red text
