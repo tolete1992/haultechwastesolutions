@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HaulTech Waste Solutions | Waste Management</title>
+    <link rel="icon" type="image/jpeg" href="IMG_9557.JPG">
+    <title>HWS | Waste Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -20,13 +21,18 @@
                 </div>
             </a>
         </div>
-        <nav>
-            <ul>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <nav class="nav-menu">
+            <ul class="nav-list">
                 <li><a href="services.html">Services</a></li>
                 <li><a href="index.html#booking">Quote Request</a></li>
                 <li>
                     <a href="tel:0411460089" class="btn-nav-call">
-                        <i class="fa-solid fa-phone"></i> <span class="phone-number">0411 460 089</span>
+                        <i class="fa-solid fa-phone"></i> <span class="phone-number"> 0411 460 089</span>
                     </a>
                 </li>
             </ul>
@@ -50,15 +56,15 @@
     <section class="stats-section">
         <div class="stats-grid">
             <div class="stat-item">
-                <h2>1+</h2>
+                <h2 class="counter" data-target="1" data-suffix="+">0</h2>
                 <p>Years Operational Excellence</p>
             </div>
             <div class="stat-item">
-                <h2>750+</h2>
+                <h2 class="counter" data-target="750" data-suffix="+">0</h2>
                 <p>Tonnes Diverted Yearly</p>
             </div>
             <div class="stat-item">
-                <h2>500+</h2>
+                <h2 class="counter" data-target="1000" data-suffix="+">0</h2>
                 <p>Clients Serviced Across Sydney</p>
             </div>
         </div>
@@ -121,9 +127,9 @@
             <input type="email" name="email" required placeholder="john@example.com">
         </div>
         <div class="form-group">
-            <label>Collection Date <span class="required">*</span></label>
-            <input type="date" name="date" required>
-        </div>
+    <label for="date">Collection Date</label>
+    <input type="date" id="date" name="collection_date">
+</div>
     </div>
 
     <div class="form-group">
@@ -186,10 +192,15 @@
                 <p>Next-generation waste management and bulk collection across Sydney.</p>
             </div>
             <div class="footer-contact">
-                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:admin@haultechwaste.com.au">admin@haultechwaste.com.au</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:0411460089">0411 460 089</a></p>
-                <p class="footer-abn"><i class="fa-solid fa-file-invoice"></i> ABN: 99 797 283 362</p>
-            </div>
+    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:admin@haultechwaste.com.au">admin@haultechwaste.com.au</a></p>
+    <p><i class="fa-solid fa-phone"></i> <a href="tel:0411460089">0411 460 089</a></p>
+    <p class="footer-abn"><i class="fa-solid fa-file-invoice"></i> ABN: 99 797 283 362</p>
+    <p class="footer-social">
+        <a href="https://www.linkedin.com/company/107852363/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+        </a>
+    </p>
+</div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 HaulTech Waste Solutions. All rights reserved.</p>
