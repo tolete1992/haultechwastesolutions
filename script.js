@@ -1,53 +1,125 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Target our specific form and elements
-    const form = document.getElementById('bookingForm');
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const statusDiv = document.getElementById('formStatus'); // Where our clean messages will appear
+    // =========================================
+    // 1. MOBILE HAMBURGER MENU TOGGLE
+    // =========================================
+    const mobileMenuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
 
-    form.addEventListener('submit', async (e) => {
-        // Stop the page from reloading
-        e.preventDefault();
-
-        // Gather all form data (automatically includes the hidden access_key and hCaptcha token from the form)
-        const formData = new FormData(form);
-
-        // Save the original button text so we can restore it later
-        const originalText = submitBtn.textContent;
-
-        // Change button state to show it is working
-        submitBtn.textContent = "Sending...";
-        submitBtn.disabled = true;
-        statusDiv.textContent = ""; // Clear any previous messages
-
-        try {
-            // Send the data to Web3Forms
-            const response = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                body: formData
-            });
-
-            const data = await response.json();
-
-            // Handle the response
-            if (response.ok) {
-                // Success: Show green text instead of an alert popup
-                statusDiv.style.color = '#16a34a'; 
-                statusDiv.textContent = "Success! Your quote request has been sent to HaulTech Waste solutions' Team.";
-                form.reset(); // Clear the form fields
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            // Toggle hamburger icon to X close icon
+            const icon = mobileMenuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
             } else {
-                // Error from Web3Forms: Show red text
-                statusDiv.style.color = '#dc2626'; 
-                statusDiv.textContent = "Error: " + data.message;
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
             }
+        });
 
-        } catch (error) {
-            // Network Error: Show red text and provide the phone number as a backup
-            statusDiv.style.color = '#dc2626';
-            statusDiv.textContent = "Something went wrong. Please try again or call 0411 460 089.";
-        } finally {
-            // Restore the button to its original state so they can use it again if needed
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }
-    });
+        // Automatically close menu when clicking any nav link on mobile
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    }
+
+    // =========================================
+    // 2. BOOKING FORM SUBMISSION (Web3Forms)
+    // =========================================
+    const form = document.getElementById('bookingForm');
+    if (form) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const statusDiv = document.getElementById('formStatus');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+            statusDiv.textContent = "";
+
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    statusDiv.style.color = '#16a34a'; 
+                    statusDiv.textContent = "Success! Your quote request has been sent to HaulTech.";
+                    form.reset();
+                } else {
+                    statusDiv.style.color = '#dc2626'; 
+                    statusDiv.textContent = "Error: " + data.message;
+                }
+
+            } catch (error) {
+                statusDiv.style.color = '#dc2626';
+                statusDiv.textContent = "Something went wrong. Please try again or call 0411 460 089.";
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+});
+// =========================================
+// STATS COUNTER ANIMATION
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    let animated = false;
+
+    const runCounters = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const suffix = counter.getAttribute('data-suffix') || '';
+            const duration = 2000; // Animation duration in milliseconds (2 seconds)
+            const increment = target / (duration / 16); // 60fps frame steps
+
+            let currentCount = 0;
+
+            const updateCount = () => {
+                currentCount += increment;
+                if (currentCount < target) {
+                    counter.textContent = Math.ceil(currentCount) + suffix;
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.textContent = target + suffix;
+                }
+            };
+
+            updateCount();
+        });
+    };
+
+    // Use Intersection Observer to trigger animation when stats section is visible
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    runCounters();
+                    animated = true;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        observer.observe(statsSection);
+    }
 });
