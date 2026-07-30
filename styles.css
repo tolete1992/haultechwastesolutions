@@ -1,7 +1,7 @@
 /* =========================================
    ENTERPRISE DESIGN SYSTEM & VARIABLES
    ========================================= */
-   :root {
+:root {
     --primary-navy: #0B192C;
     --primary-green: #00A651; /* Vibrant, trustworthy green */
     --hover-green: #008741;
@@ -18,6 +18,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -61,16 +65,18 @@ h1, h2, h3, h4 {
     gap: 0.5rem;
 }
 
-.logo span { color: var(--primary-green); }
-.logo .tagline {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-left: 10px;
-    border-left: 2px solid var(--border-color);
-    padding-left: 10px;
-    display: none; /* Hidden on very small screens */
+
+
+span.brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #94A3B8 !important; /* Brighter, light metallic silver for "HAUL" */
+    letter-spacing: -0.5px;
+}
+
+span.brand-name span {
+    color: #007A3D !important; /* Rich, darker green for "TECH" */
 }
 
 @media(min-width: 768px) { .logo .tagline { display: block; } }
@@ -495,7 +501,7 @@ footer {
 }
 
 .service-card-premium ul li::before {
-    content: '\f00c'; /* FontAwesome Checkmark */
+    content: '\f00c';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     position: absolute;
@@ -564,7 +570,6 @@ footer {
     line-height: 1;
 }
 
-/* Special styling for the ABN card so it fits nicely */
 .stat-item .abn-code {
     font-size: 1.6rem;
     color: var(--primary-green);
@@ -583,16 +588,6 @@ footer {
     letter-spacing: 0.5px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 /* =========================================
    PERFECT CENTERING FOR SERVICES PAGE HERO
    ========================================= */
@@ -608,98 +603,6 @@ html {
     margin-left: auto !important;
     margin-right: auto !important;
     max-width: 650px;
-}
-
-/* =========================================
-   ULTRA-COMPACT MOBILE HEADER FIX
-   ========================================= */
-@media(max-width: 768px) {
-    .navbar {
-        padding: 0.75rem 4%;
-        flex-wrap: nowrap; /* Forces everything to stay on one clean line */
-    }
-
-    /* Shrinks the logo just enough so it never crowds the menu buttons */
-    .logo a {
-        font-size: 1.3rem !important;
-        letter-spacing: -0.5px;
-    }
-
-    .tagline {
-        display: none !important; /* Hides secondary text completely on mobile */
-    }
-
-    .mobile-actions {
-        display: flex;
-        gap: 0.6rem;
-        align-items: center;
-    }
-    
-    /* Makes the mobile phone icon sleek and proportional */
-    .mobile-phone-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 0.95rem;
-    }
-
-    /* Tightens the hamburger button */
-    .menu-toggle {
-        font-size: 1.35rem;
-        padding: 0;
-    }
-
-    .desktop-phone {
-        display: none !important;
-    }
-}
-
-/* =========================================
-   RESPONSIVE PHONE NUMBER & HEADER STYLING
-   ========================================= */
-@media(max-width: 768px) {
-    .navbar {
-        padding: 0.75rem 4%;
-        justify-content: space-between;
-    }
-
-    .logo a {
-        font-size: 1.2rem !important;
-        letter-spacing: -0.5px;
-    }
-
-    .tagline {
-        display: none !important;
-    }
-
-    nav ul {
-        gap: 0.6rem;
-        align-items: center;
-    }
-
-    nav a {
-        font-size: 0.85rem;
-    }
-
-    /* Keeps the call button compact and clean on mobile */
-    .btn-nav-call {
-        padding: 0.4rem 0.7rem;
-        font-size: 0.8rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-    }
-
-    /* Keeps the phone digits readable on smaller phones */
-    .phone-number {
-        font-size: 0.78rem;
-    }
-}
-
-/* For extremely small screens (older phones under 380px wide) */
-@media(max-width: 380px) {
-    .phone-number {
-        display: none; /* Safely hides just the digits on tiny screens, keeping the green phone icon active to dial */
-    }
 }
 
 /* =========================================
@@ -726,25 +629,28 @@ html {
 }
 
 /* =========================================
-   3D & MOVING SERVICE ICONS
+   3D & MOVING SERVICE ICONS (Fixed for Services Page)
    ========================================= */
 
-/* Enable 3D perspective on the service cards */
-.service-card {
+/* Enable 3D perspective on both card styles */
+.service-card,
+.service-card-premium {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d;
     perspective: 1000px;
 }
 
-/* 3D tilt effect when hovering the entire card */
-.service-card:hover {
+/* 3D tilt effect when hovering either card type */
+.service-card:hover,
+.service-card-premium:hover {
     transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
     box-shadow: 0 20px 40px rgba(0, 166, 81, 0.15), 0 10px 20px rgba(11, 25, 44, 0.1);
 }
 
-/* Continuous gentle floating movement for the icon container */
+/* Continuous floating movement for all icons */
 .service-icon, 
-.service-card i {
+.service-card i,
+.service-card-premium .icon {
     animation: floatIcon 4s ease-in-out infinite;
     transform-style: preserve-3d;
     display: inline-block;
@@ -764,10 +670,11 @@ html {
     }
 }
 
-/* Enhanced 3D pop effect when hovering the card */
+/* 3D pop effect when hovering over the cards */
 .service-card:hover .service-icon,
-.service-card:hover i {
-    animation-play-state: paused; /* Pause floating during hover to focus on the 3D pop */
+.service-card:hover i,
+.service-card-premium:hover .icon {
+    animation-play-state: paused; 
     transform: translateY(-12px) translateZ(25px) scale(1.12);
     color: var(--primary-green);
     text-shadow: 0 10px 20px rgba(0, 166, 81, 0.3);
@@ -776,49 +683,6 @@ html {
 /* =========================================
    CUSTOM BRAND LOGO STYLING
    ========================================= */
-
-/* Header Logo */
-.logo a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.logo-img {
-    height: 48px;
-    width: auto;
-    display: block;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.02);
-}
-
-/* Footer Logo */
-.footer-brand a {
-    display: inline-block;
-    margin-bottom: 0.75rem;
-}
-
-.footer-logo-img {
-    height: 52px;
-    width: auto;
-    display: block;
-    object-fit: contain;
-}
-
-/* Mobile Adjustments for Header Logo */
-@media(max-width: 768px) {
-    .logo-img {
-        height: 38px;
-    }
-}
-
-/* =========================================
-   SIDE-BY-SIDE LOGO & BRAND TEXT
-   ========================================= */
 .logo-container {
     display: flex;
     align-items: center;
@@ -826,15 +690,30 @@ html {
     text-decoration: none;
 }
 
+/* =========================================
+   FORCED CIRCULAR HEADER LOGO
+   ========================================= */
 .logo-img {
-    height: 42px;
-    width: auto;
-    object-fit: contain;
+    height: 42px !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    display: block !important;
     transition: transform 0.3s ease;
 }
 
 .logo-container:hover .logo-img {
     transform: scale(1.03);
+}
+
+/* Mobile Adjustments for Circular Logo */
+@media(max-width: 768px) {
+    .logo-img {
+        height: 36px !important;
+        width: 36px !important;
+        min-width: 36px !important;
+    }
 }
 
 .logo-text {
@@ -843,16 +722,19 @@ html {
     line-height: 1.1;
 }
 
+/* =========================================
+   TRUE SILVER & DARK GREEN BRAND LOGO
+   ========================================= */
 .brand-name {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 1.3rem;
-    color: var(--primary-navy);
+    color: #4B5563; /* Crisp, distinct steel-silver for "HAUL" */
     letter-spacing: -0.5px;
 }
 
 .brand-name span {
-    color: var(--primary-green);
+    color: #007A3D; /* Rich, darker green for "TECH" */
 }
 
 .tagline {
@@ -864,7 +746,6 @@ html {
     text-transform: uppercase;
 }
 
-/* Mobile Responsiveness for Header Branding */
 @media(max-width: 768px) {
     .logo-img {
         height: 34px;
@@ -875,7 +756,7 @@ html {
     }
 
     .tagline {
-        display: none; /* Hides tagline on smaller mobile screens to keep the header clean and uncluttered */
+        display: none;
     }
 }
 
@@ -924,7 +805,6 @@ html {
     display: block;
 }
 
-/* Mobile Responsiveness for Map Section */
 @media(max-width: 768px) {
     .map-section {
         padding: 3.5rem 4%;
@@ -939,3 +819,130 @@ html {
     }
 }
 
+/* =========================================
+   MOBILE HAMBURGER MENU STYLING
+   ========================================= */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: var(--primary-navy);
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: var(--primary-green);
+}
+
+@media(max-width: 768px) {
+    /* Ensures the logo and text remain visible on mobile */
+    .logo-img {
+        height: 34px !important;
+        width: 34px !important;
+        min-width: 34px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+    }
+
+    .brand-name {
+        font-size: 1rem;
+    }
+
+    .tagline {
+        display: block !important; /* Keeps "Waste Solutions" visible on mobile */
+        font-size: 0.55rem;        /* Scales it down slightly to fit smaller screens */
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        box-shadow: 0 15px 30px rgba(11, 25, 44, 0.1);
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-menu.active {
+        max-height: 350px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch !important;
+        padding: 1.5rem 6%;
+        gap: 1rem !important;
+        width: 100%;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-list a {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0;
+        font-size: 1.05rem;
+    }
+
+    .btn-nav-call {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0.8rem 1rem !important;
+        margin-top: 0.5rem;
+    }
+}
+
+/* =========================================
+   FOOTER SOCIAL LINK STYLING
+   ========================================= */
+.footer-social {
+    margin-top: 0.75rem;
+}
+
+.footer-social a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a i {
+    color: var(--primary-green);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--primary-green);
+}
+
+.footer-social a:hover i {
+    transform: scale(1.15);
+}
+
+/* =========================================
+   FOOTER CONTACT HOVER MOVE EFFECT
+   ========================================= */
+.footer-contact p {
+    transition: transform 0.3s ease;
+}
+
+.footer-contact p:hover {
+    transform: translateX(8px); /* Smoothly slides the contact item to the right on hover */
+}
