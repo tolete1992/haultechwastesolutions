@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise Services | HaulTech Waste Solutions</title>
+    <link rel="icon" type="image/jpeg" href="IMG_9557.JPG">
+    <title>HWS | Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -20,13 +21,18 @@
                 </div>
             </a>
         </div>
-        <nav>
-            <ul>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <nav class="nav-menu">
+            <ul class="nav-list">
                 <li><a href="services.html">Services</a></li>
                 <li><a href="index.html#booking">Quote Request</a></li>
                 <li>
                     <a href="tel:0411460089" class="btn-nav-call">
-                        <i class="fa-solid fa-phone"></i> <span class="phone-number">0411 460 089</span>
+                        <i class="fa-solid fa-phone"></i> <span class="phone-number"> 0411 460 089</span>
                     </a>
                 </li>
             </ul>
@@ -93,27 +99,33 @@
     </section>
 
     <section class="cta-banner">
-        <h2>Ready to optimize your waste management?</h2>
+        <h2>Ready to optimise your waste management?</h2>
         <p>Get a transparent quote and rapid dispatch from our team today.</p>
         <a href="index.html#booking" class="btn-primary btn-lg">Request a Quote <i class="fa-solid fa-arrow-right"></i></a>
     </section>
 
-   <footer>
+    <footer>
         <div class="footer-container">
             <div class="footer-brand">
                 <h2>HAUL<span>TECH</span> <span style="font-size: 1rem; font-weight: 600; color: #cbd5e1; letter-spacing: 1px; margin-left: 8px;">WASTE SOLUTIONS</span></h2>
                 <p>Next-generation waste management and bulk collection across Sydney.</p>
             </div>
-            <div class="footer-contact">
-                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:admin@haultechwaste.com.au">admin@haultechwaste.com.au</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:0411460089">0411 460 089</a></p>
-                <p class="footer-abn"><i class="fa-solid fa-file-invoice"></i> ABN: 99 797 283 362</p>
-            </div>
+             <div class="footer-contact">
+    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:admin@haultechwaste.com.au">admin@haultechwaste.com.au</a></p>
+    <p><i class="fa-solid fa-phone"></i> <a href="tel:0411460089">0411 460 089</a></p>
+    <p class="footer-abn"><i class="fa-solid fa-file-invoice"></i> ABN: 99 797 283 362</p>
+    <p class="footer-social">
+        <a href="https://www.linkedin.com/company/107852363/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+        </a>
+    </p>
+</div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 HaulTech Waste Solutions. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
